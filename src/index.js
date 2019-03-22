@@ -26,4 +26,4 @@ function bulkWriteStream (options = {}) {
   return pumpify(bulkStream, writeStream)
 }
 
-module.exports = bulkWriteStream
+module.exports.bulkWriteStream = bulkWriteStream
