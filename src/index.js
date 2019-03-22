@@ -6,6 +6,7 @@ const stream = require('stream')
 
 function bulkWriteStream (options = {}) {
   const client = options.client
+  if (!client) { throw Error('Missing ElasticSearch client') }
   const size = options.size || 100
 
   const bulkStream = batch2.obj({ size })
