@@ -9,3 +9,57 @@
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
 
 A write stream that creates batches of elasticsearch bulk operations.
+
+## Example
+
+The ElasticSearch library has a function to [bulk](https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/api-reference.html#api-bulk) write documents, but since a stream emits a write for each document, we cannot group multiple operations together.
+
+This package wraps the `bulk` function in a writestream to help buffer the operations and passing them on as batches to the bulk function. For example, we can now create batches of 500 docs each and reduce the number of API calls to ElasticSearch from 100.000 to 200, which will improve speed.
+
+```js
+  const docTransformStream = through2.obj(function (chunk, enc, callback) {
+    // convert chunk => doc
+    const doc = { index: 'myindex', type: 'mytype', id: '12345', action: 'index', doc: { name: 'test' } }
+    callback(null, doc)
+  })
+
+  sourceReadStream().pipe(docTransformStream()).pipe(bulkWriteStream({ client, size: 500 }))
+```
+
+## Installation
+
+```bash
+$ npm install elasticsearch-batch-stream
+```
+
+## API
+
+<b><code>bulkWriteStream(options = { client, size })</code></b>
+
+Creates the write stream to ElasticSearch.
+
+### options
+
+The options object argument is required and should at least include the ElasticSearch client object.
+
+#### client
+
+An instance of the ElasticSearch client i.e. `new elasticsearch.Client()`
+
+#### size
+
+Number of stream operations to group together in the bulk command (default = 100).
+
+## Maintainers
+
+Osmond van Hemert
+[![Github](https://img.shields.io/badge/-website.svg?style=social&logoColor=333&logo=github)](https://github.com/ovhemert/about)
+[![Web](https://img.shields.io/badge/-website.svg?style=social&logoColor=333&logo=nextdoor)](https://www.osmondvanhemert.nl)
+
+## Contributing
+
+See the [CONTRIBUTING](./docs/CONTRIBUTING.md) file for details.
+
+## License
+
+Licensed under [MIT](./LICENSE).
