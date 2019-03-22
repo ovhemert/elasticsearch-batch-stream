@@ -8,7 +8,7 @@ function bulkWriteStream (options = {}) {
   const client = options.client
   const size = options.size || 100
 
-  const bulkStream = batch2({ size })
+  const bulkStream = batch2.obj({ size })
 
   let writeStream = new stream.Writable({ objectMode: true, highWaterMark: 1 })
   writeStream._write = function (chunk, encoding, callback) {
