@@ -23,7 +23,7 @@ function bulkWriteStream (options = {}) {
     client.bulk({ body }, callback)
   }
 
-  return pumpify(bulkStream, writeStream)
+  return pumpify.obj(bulkStream, writeStream)
 }
 
 module.exports.bulkWriteStream = bulkWriteStream
