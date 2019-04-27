@@ -32,12 +32,12 @@
   },
   "homepage": "https://github.com/ovhemert/elasticsearch-batch-stream#readme",
   "dependencies": {
-    "batch2": "^1.0.1",
+    "batch2": "^1.0.2",
     "pumpify": "^1.5.1"
   },
   "devDependencies": {
-    "sinon": "^7.3.0",
+    "sinon": "^7.3.2",
     "standard": "^12.0.1",
-    "tap": "^12.5.3"
+    "tap": "^13.0.4"
   }
 }
