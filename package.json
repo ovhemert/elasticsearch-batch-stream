@@ -1,6 +1,6 @@
 {
   "name": "elasticsearch-batch-stream",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A write stream that creates batches of elasticsearch bulk operations.",
   "main": "src/index.js",
   "scripts": {
