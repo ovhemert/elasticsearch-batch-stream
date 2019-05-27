@@ -25,14 +25,14 @@
   "engines": {
     "node": ">=8.6.0"
   },
-  "author": "Osmond van Hemert <osmond@vanhemert.nu>",
+  "author": "Osmond van Hemert <hello@ovhemert.dev> (https://ovhemert.dev)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ovhemert/elasticsearch-batch-stream/issues"
   },
   "homepage": "https://github.com/ovhemert/elasticsearch-batch-stream#readme",
   "dependencies": {
-    "batch2": "^1.0.2",
+    "batch2": "^1.0.3",
     "pumpify": "^1.5.1"
   },
   "devDependencies": {
