@@ -33,7 +33,7 @@
   "homepage": "https://github.com/ovhemert/elasticsearch-batch-stream#readme",
   "dependencies": {
     "batch2": "^1.0.3",
-    "pumpify": "^1.5.1"
+    "pumpify": "^2.0.0"
   },
   "devDependencies": {
     "sinon": "^7.3.2",
