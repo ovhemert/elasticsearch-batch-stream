@@ -11,7 +11,7 @@ function bulkWriteStream (options = {}) {
 
   const bulkStream = batch2.obj({ size })
 
-  let writeStream = new stream.Writable({ objectMode: true, highWaterMark: 1 })
+  const writeStream = new stream.Writable({ objectMode: true, highWaterMark: 1 })
   writeStream._write = function (chunk, encoding, callback) {
     const body = chunk.reduce((prev, curr) => {
       if (['index', 'update', 'delete'].indexOf(curr.action) < 0) { return prev }
