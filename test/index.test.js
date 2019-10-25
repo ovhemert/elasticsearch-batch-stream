@@ -76,9 +76,21 @@ test('ignore missing arguments', t => {
   })
   const writeStream = ebs.bulkWriteStream({ client })
   writeStream.write({ index: null, type: 'mytype', id: '12345', action: 'index', doc: { name: 'test' } })
-  writeStream.write({ index: 'myindex', type: null, id: '12345', action: 'index', doc: { name: 'test' } })
   writeStream.write({ index: 'myindex', type: 'mytype', id: null, action: 'index', doc: { name: 'test' } })
   writeStream.write({ index: 'myindex', type: 'mytype', id: '12345', action: 'index', doc: null })
+  writeStream.end()
+})
+
+test('type is optional', t => {
+  t.plan(1)
+
+  const client = getClient()
+  sinon.stub(client, 'bulk').callsFake((data, callback) => {
+    t.equal(data.body.length, 4)
+  })
+  const writeStream = ebs.bulkWriteStream({ client })
+  writeStream.write({ index: 'myindex', type: 'mytype', id: '12345', action: 'index', doc: { name: 'test' } })
+  writeStream.write({ index: 'myindex', type: null, id: '12345', action: 'index', doc: { name: 'test' } })
   writeStream.end()
 })
 
