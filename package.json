@@ -35,7 +35,7 @@
     "pumpify": "^2.0.0"
   },
   "devDependencies": {
-    "sinon": "^7.4.2",
+    "sinon": "^8.0.0",
     "standard": "^14.2.0",
     "tap": "^14.6.2"
   }
