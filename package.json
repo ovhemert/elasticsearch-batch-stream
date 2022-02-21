@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/ovhemert/elasticsearch-batch-stream#readme",
   "dependencies": {
-    "batch2": "^1.0.6",
+    "batch2": "^2.0.0",
     "pumpify": "^2.0.1"
   },
   "devDependencies": {
